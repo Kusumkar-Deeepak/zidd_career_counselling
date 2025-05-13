@@ -1,8 +1,41 @@
 import React, { useContext } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { LanguageContext } from '../context/LanguageContext';
 
 const Footer = () => {
   const { language } = useContext(LanguageContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isAchieversPage = location.pathname === '/achievers';
+
+  const handleScrollToSection = (hash) => {
+    if (location.pathname !== '/') {
+      // If we're not on the home page, navigate to home first
+      navigate('/');
+      // Wait for the navigation to complete before scrolling
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      // If we're already on the home page, just scroll
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
+  const navLinks = [
+    { hash: '#hero-section', text: { english: 'Home', marathi: 'मुख्यपृष्ठ' } },
+    { hash: '#services', text: { english: 'Our Programs', marathi: 'आमचे प्रोग्राम' } },
+    { hash: '#testimonials', text: { english: 'Success Stories', marathi: 'यशोगाथा' } },
+    { hash: '#contact', text: { english: 'Contact', marathi: 'संपर्क' } },
+    { path: '/achievers', text: { english: 'Our Achievers', marathi: 'आमचे यशस्वी विद्यार्थी' } }
+  ];
+
   return (
     <footer className="bg-gray-800 text-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -22,25 +55,36 @@ const Footer = () => {
               {language === 'english' ? 'Quick Links' : 'द्रुत लिंक'}
             </h4>
             <ul className="space-y-2">
+              {!isAchieversPage ? (
+                <>
+                  {navLinks.slice(0, -1).map((link, index) => (
+                    <li key={index}>
+                      <button
+                        onClick={() => handleScrollToSection(link.hash)}
+                        className="text-gray-300 hover:text-white transition duration-300 text-left"
+                      >
+                        {language === 'english' ? link.text.english : link.text.marathi}
+                      </button>
+                    </li>
+                  ))}
+                </>
+              ) : (
+                <li>
+                  <button
+                    onClick={() => navigate('/')}
+                    className="text-gray-300 hover:text-white transition duration-300 text-left"
+                  >
+                    {language === 'english' ? 'Home' : 'मुख्यपृष्ठ'}
+                  </button>
+                </li>
+              )}
               <li>
-                <a href="/" className="text-gray-300 hover:text-white transition duration-300">
-                  {language === 'english' ? 'Home' : 'मुख्यपृष्ठ'}
-                </a>
-              </li>
-              <li>
-                <a href="/services" className="text-gray-300 hover:text-white transition duration-300">
-                  {language === 'english' ? 'Services' : 'सेवा'}
-                </a>
-              </li>
-              <li>
-                <a href="/testimonials" className="text-gray-300 hover:text-white transition duration-300">
-                  {language === 'english' ? 'Success Stories' : 'यशोगाथा'}
-                </a>
-              </li>
-              <li>
-                <a href="/contact" className="text-gray-300 hover:text-white transition duration-300">
-                  {language === 'english' ? 'Contact' : 'संपर्क'}
-                </a>
+                <button
+                  onClick={() => navigate('/achievers')}
+                  className="text-gray-300 hover:text-white transition duration-300 text-left"
+                >
+                  {language === 'english' ? 'Our Achievers' : 'आमचे यशस्वी विद्यार्थी'}
+                </button>
               </li>
             </ul>
           </div>
@@ -60,7 +104,7 @@ const Footer = () => {
               {language === 'english' ? 'Join Our Counselling' : 'आमच्या काउन्सेलिंगमध्ये सामील व्हा'}
             </h4>
             <a
-              href="https://forms.gle/YOUR_GOOGLE_FORM_LINK" // Replace with your Google Form link
+              href="https://forms.gle/YOUR_GOOGLE_FORM_LINK"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded transition duration-300"
