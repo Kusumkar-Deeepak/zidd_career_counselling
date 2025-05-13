@@ -49,10 +49,10 @@ const Navbar = () => {
               <img
                 className="h-10 w-auto"
                 src={logo}
-                alt="Zidd Career Counselling Academy"
+                alt="Zidd Academy"
               />
               <span className="ml-2 text-xl font-bold text-indigo-600">
-                Zidd Career Counselling Academy
+                Zidd Academy
               </span>
             </Link>
           </div>
