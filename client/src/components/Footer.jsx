@@ -104,7 +104,7 @@ const Footer = () => {
               {language === 'english' ? 'Join Our Counselling' : 'आमच्या काउन्सेलिंगमध्ये सामील व्हा'}
             </h4>
             <a
-              href="https://forms.gle/YOUR_GOOGLE_FORM_LINK"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSf9HUlWSKUKLz4OcXYztqNCFjQMkLWI91OcRzYIOtb8qLk2IA/viewform"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded transition duration-300"
