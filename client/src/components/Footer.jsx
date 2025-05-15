@@ -95,7 +95,7 @@ const Footer = () => {
             <address className="not-italic text-gray-300">
               <p>123 Education Street</p>
               <p>Pune, Maharashtra 411001</p>
-              <p className="mt-2">Email: info@ziddcareer.com</p>
+              <p className="mt-2">Email: ziddacademy@gmail.com</p>
               <p>Phone: +91 9876543210</p>
             </address>
           </div>

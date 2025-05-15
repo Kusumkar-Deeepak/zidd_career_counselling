@@ -31,7 +31,7 @@ const HeroSection = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
-              href="https://forms.gle/YOUR_GOOGLE_FORM_LINK"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSf9HUlWSKUKLz4OcXYztqNCFjQMkLWI91OcRzYIOtb8qLk2IA/viewform"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
