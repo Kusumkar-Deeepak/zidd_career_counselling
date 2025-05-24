@@ -93,10 +93,13 @@ const Footer = () => {
               {language === 'english' ? 'Contact Info' : 'संपर्क माहिती'}
             </h4>
             <address className="not-italic text-gray-300">
-              <p>123 Education Street</p>
+              {/* <p>123 Education Street</p> */}
               <p>Pune, Maharashtra 411001</p>
-              <p className="mt-2">Email: ziddacademy@gmail.com</p>
-              <p>Phone: +91 9876543210</p>
+              <p className="mt-2">
+  Email: <a href="mailto:ziddacademy@gmail.com" className="text-blue-600 hover:underline">ziddacademy@gmail.com</a>
+</p>
+
+              <p>Phone: +91 7350519509</p>
             </address>
           </div>
           <div>
